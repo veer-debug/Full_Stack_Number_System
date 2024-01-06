@@ -27,61 +27,56 @@ class Main:
         INN_frame.place(x=20,y=10,width=860,height=680)
         # ==============================================
         
+        img0=Image.open(r"C:\Users\theve\OneDrive\Desktop\git_projects\Full_Stack_Number_System\Images\Number.jpg")
+        img0=img0.resize((840,270))
+        self.photoimg0=ImageTk.PhotoImage(img0)
+        
+        f_lbl=Label(INN_frame,image=self.photoimg0)
+        f_lbl.place(x=10,y=500,width=840,height=170)
+        
+        img00=Image.open(r"C:\Users\theve\OneDrive\Desktop\git_projects\Full_Stack_Number_System\Images\logo.ico")
+        img00=img00.resize((80,80))
+        self.photoimg00=ImageTk.PhotoImage(img00)
+        
+        f_lbl=Label(INN_frame,image=self.photoimg00)
+        f_lbl.place(x=380,y=30)
+        
         number=Label(INN_frame,width="15",height=2,text="Enter Number",font=("times new roman",15,"bold"),bg="white")
-        number.grid(row=0,column=0,padx=40,pady=50,sticky=W)
+        number.place(x=70,y=190)
         
         # number_lable=Label(INN_frame,text="Number",font=("times new roman",12,"bold"),bg="white")
         # number_lable.grid(row=0,column=0,padx=10,pady=2,sticky=W)
         number_entry=ttk.Entry(INN_frame,width="20",font=("times new roman",30,"bold"))
-        number_entry.grid(row=0,column=1,padx=10,pady=2,sticky=W)
+        number_entry.place(x=330,y=190)
         
         
         number_combo=ttk.Combobox(INN_frame,font=("times new roman",30,"bold"),width=2,state="readonly")
         number_combo['values']=("10","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35")
         number_combo.current(0)
-        number_combo.grid(row=0,column=2,padx=2,pady=2,sticky=W)
+        number_combo.place(x=730,y=190)
         
         # ==============================================
         
         
         number1=Label(INN_frame,width="15",height=2,text="Result",font=("times new roman",15,"bold"),bg="white")
-        number1.grid(row=1,column=0,padx=40,pady=20,sticky=W)
+        number1.place(x=70,y=300)
         
         # number1_lable=Label(INN_frame,text="Number1",font=("times new roman",12,"bold"),bg="white")
         # number1_lable.grid(row=0,column=0,padx=10,pady=2,sticky=W)
         number1_entry=ttk.Entry(INN_frame,width=20,font=("times new roman",30,"bold"))
-        number1_entry.grid(row=1,column=1,padx=10,pady=2,sticky=W)
+        number1_entry.place(x=330,y=300)
         
         
         number1_combo=ttk.Combobox(INN_frame,font=("times new roman",30,"bold"),width=2,state="readonly")
         number1_combo['values']=("10","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35")
         number1_combo.current(0)
-        number1_combo.grid(row=1,column=2,padx=2,pady=2,sticky=W)
+        number1_combo.place(x=730,y=300)
         
         # Button
         
         Submit=Button(INN_frame,text="Submit",width=20,font=("times new roman",20,"bold"),bg="red",fg="white")
-        Submit.place(x=330,y=270,width=150,height=50)
-        
-        
-        # Slides
-        
-        
-        
-        
-        # table_frame=Frame(INN_frame,bd=2,bg="light green",relief=RIDGE)
-        # table_frame.place(x=-1,y=250,width=858,height=440)
-        
-        
-        # scroll_x=ttk.Scrollbar(table_frame,orient=HORIZONTAL)
-        # scroll_y=ttk.Scrollbar(table_frame,orient=VERTICAL)
-        # self.student_table=ttk.Treeview(table_frame,column=("ID","Roll_No","Name","Gender","Department","Year","Semester","Course","Division","DOB","Email","Phone","Address","Teacher","Photos"),xscrollcommand=scroll_x.set,yscrollcommand=scroll_y.set)
-        # scroll_x.pack(side=BOTTOM,fill=X)
-        # scroll_y.pack(side=RIGHT,fill=Y)
-        
-        # scroll_x.config(command=self.student_table.xview)
-        # scroll_y.config(command=self.student_table.yview).config(command=self.student_table.yview)   
-        
+        Submit.place(x=330,y=400,width=150,height=50)
+             
         
         
         # =============================RIGHT LABLE FRAME===================
