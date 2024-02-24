@@ -1,8 +1,6 @@
 class decimal:     
         
     def decimal_to_base(self,number,base):
-            self.base=base
-            self.number=number
             dic={
                 10:'A',
                 11:'B',
@@ -32,23 +30,39 @@ class decimal:
                 35:'Z'
             }
             Result=[]
-            while self.number!=0:
-                temp=self.number%self.base
+            while number!=0:
+                temp=number%base
                 if temp>9:
                     Result.append(dic[temp])
                 else:
                     Result.append(temp)
-                self.number=self.number//self.base
+                number=number//base
             Result=Result[::-1]
             ans=""
             for i in Result:
                  ans=ans+str(i)
             return ans
-    def str_to_Number(number):
-         dic={
-         }
-         for i in range(65,65+26):
-              dic[chr(i)]=i-55
+    def str_to_Number(self,number,base):
+        dic={
+        }
+        for i in range(65,65+26):
+            dic[chr(i)]=i-55
+        for i in range(97,97+26):
+              dic[chr(i)]=i-87
+        
+        result=0
+        siz=len(number)-1
+        for i in number:
+            t=ord(i)
+            temp=base**siz
+            if ((t>=ord('1')) and (t<=ord('9'))):
+                result=result+(temp*(int(i)))
+            elif (t>=ord('A') or t>=ord('a')) and (t<=ord('Z') or t<=ord('z')):
+                 t2=dic[i]
+                 result=result+(temp*t2)
+            siz-=1
+        return result
+      
             
          
 

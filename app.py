@@ -4,7 +4,7 @@ from convert import Number_system
 
 app=Flask(__name__)
 
-
+sol=Number_system()
 
 @app.route('/')
 def home():
@@ -16,12 +16,11 @@ def priduction():
         try:
             if request.form:
                 number=request.form['number']
-                base=request.form['base']
-                print(number) 
-                print(base)
-                status=True
+                base1=request.form['base1']
+                base2=request.form['base2']
+                result=sol.solv(number,base1,base2)
                 
-                return render_template('index.html',number=number,base=base)
+                return render_template('index.html',number=result)
 
         except Exception as e:
             error={'error':e}

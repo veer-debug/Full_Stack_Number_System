@@ -8,10 +8,17 @@
 <body>
   <form action="/takenumber"method="POST" >
     <input type="enter" name="number">
-    <select id='movies' name="base">
+    <select id='movies' name="base1">
       {%for j in range(2,33)%}
       <option value="{{j}}">{{j}}</option>
       {%endfor%}
+      
+    </select>
+    <select id='movies' name="base2">
+      {%for j in range(2,33)%}
+      <option value="{{j}}">{{j}}</option>
+      {%endfor%}
+      
     </select>
     <br>
     <button type="submit" >Convert</button>
