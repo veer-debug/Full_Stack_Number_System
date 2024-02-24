@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+</head>
+<body>
+  <form action="/takenumber"method="POST" >
+    <input type="enter" name="number">
+    <select id='movies' name="base">
+      {%for j in range(2,33)%}
+      <option value="{{j}}">{{j}}</option>
+      {%endfor%}
+    </select>
+    <br>
+    <button type="submit" >Convert</button>
+  </form>
+
+
+  </form>
+  {%if number%}
+    <h1>{{number}}</h1>
+    <h1>{{base}}</h1>
+  {%endif%}
+</body>
+</html>
