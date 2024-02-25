@@ -19,12 +19,11 @@ def priduction():
                 base1=request.form['base1']
                 base2=request.form['base2']
                 result=sol.solv(number,base1,base2)
-                
                 return render_template('index.html',number=result)
 
         except Exception as e:
+            print (e)
             error={'error':e}
-            print(e)
             return render_template('index.html')
     
     else:

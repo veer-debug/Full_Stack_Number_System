@@ -1,34 +1,160 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+  <title>DE Worlds</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background: linear-gradient(45deg, #3498db, #e74c3c);
+      animation: gradientAnimation 10s linear infinite alternate;
+      padding-bottom: 60px; /* Adjusted padding to accommodate the fixed footer */
+    }
+
+    @keyframes gradientAnimation {
+      0% {
+        background-position: 0% 50%;
+      }
+      100% {
+        background-position: 100% 50%;
+      }
+    }
+
+    header {
+      background-color: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 1em;
+      text-align: center;
+      animation: fadeIn 1s ease-out forwards;
+    }
+
+    form {
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      opacity: 0;
+      animation: fadeIn 1s ease-out forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    input, select {
+      width: calc(100% - 16px);
+      padding: 8px;
+      margin-bottom: 15px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #333;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    h1 {
+      margin-top: 20px;
+      font-size: 24px;
+      animation: fadeIn 1s ease-out forwards;
+    }
+
+    #conversion-info {
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      opacity: 0;
+      animation: fadeIn 1s ease-out forwards;
+    }
+
+    footer {
+      background-color: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 1em;
+      text-align: center;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
 </head>
 <body>
-  <form action="/takenumber"method="POST" >
-    <input type="enter" name="number">
-    <select id='movies' name="base1">
-      {%for j in range(2,33)%}
-      <option value="{{j}}">{{j}}</option>
-      {%endfor%}
-      
+
+  <header>
+    <h1>DE Worlds Converter</h1>
+  </header>
+
+  <form action="/takenumber" method="POST">
+    <label for="number">Enter Number:</label>
+    <input type="text" id="number" name="number">
+
+    <label for="base1">Select Base 1:</label>
+    <select id="base1" name="base1">
+      {% for j in range(2, 37) %}
+        <option value="{{ j }}">{{ j }}</option>
+      {% endfor %}
     </select>
-    <select id='movies' name="base2">
-      {%for j in range(2,33)%}
-      <option value="{{j}}">{{j}}</option>
-      {%endfor%}
-      
+
+    <label for="base2">Select Base 2:</label>
+    <select id="base2" name="base2">
+      {% for j in range(2, 37) %}
+        <option value="{{ j }}">{{ j }}</option>
+      {% endfor %}
     </select>
-    <br>
-    <button type="submit" >Convert</button>
+
+    <button type="submit">Convert</button>
+    
+    {% if number %}
+      <h1>Result: {{ number }}</h1>
+    {% endif %}
   </form>
 
+  <div id="conversion-info">
+    <h2>Number Conversions</h2>
+    <p>
+      The entered number can be converted into different bases using the selected base values.
+    </p>
 
-  </form>
-  {%if number%}
-    <h1>{{number}}</h1>
-    <h1>{{base}}</h1>
-  {%endif%}
+    <h3>Decimal to Binary Conversion</h3>
+    <p>
+      To convert a decimal number to binary, each digit is successively divided by 2, and the remainders, read in reverse order, form the binary equivalent.
+    </p>
+
+    <h3>Other Conversions</h3>
+    <p>
+      You can explore conversions to various bases using the dropdown options in the form.
+    </p>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 DE Worlds. All rights reserved.</p>
+  </footer>
+
 </body>
 </html>
