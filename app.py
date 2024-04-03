@@ -31,5 +31,3 @@ def priduction():
 
 
 
-
-app.run(debug=True)
