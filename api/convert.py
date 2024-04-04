@@ -1,4 +1,4 @@
-from decimal_to import decimal
+from Full_Stack_Number_System.api.decimal_to import decimal
 
 solution=decimal()
 

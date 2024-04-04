@@ -1,1 +1,8 @@
-Flask==2.2.2
+dnspython==2.3.0
+Flask==2.0.2
+Jinja2==3.0.3
+pytz==2023.3
+pywebio==1.8.2
+tornado==6.3.1
+typing_extensions==4.5.0
+Werkzeug==2.0.3
